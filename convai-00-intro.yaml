@@ -1,0 +1,14 @@
+# Chapter 01
+#
+# When the question lives on your slide and you only want a live vote, omit the
+# `correct` field. QuiQui then collects votes and shows the bar chart, but the
+# Reveal button is hidden — there is nothing to mark green.
+
+- question: "What's your prior knowledge?"
+  type: single
+  answers:
+    - "No relevant prior knowledge"
+    - "Foundations of ML / neural networks"
+    - "Foundations of NLP"
+    - "First experiences with chatbot or agent development"
+
