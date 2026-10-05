@@ -4,7 +4,7 @@
 # `correct` field. QuiQui then collects votes and shows the bar chart, but the
 # Reveal button is hidden — there is nothing to mark green.
 
-- question: "Which of these are human?"
+- question: "Which of these are human-human?"
   type: multiple
   answers:
     - "Book a trip example"
