@@ -48,3 +48,45 @@
     - **C** wrong: embeddings are dense, nearly every entry is non-zero.
     - **D** correct: attention depends on position, so a different order changes the vectors.
     - **E** correct: similar meaning gives similar embeddings, which TF-IDF cannot do.
+
+# Slide: Example: Rasa Forms (frames vs. FSM, over-answering)
+
+- question: |
+    A flight bot asks: "Where do you want to fly to?"
+
+    The user answers: "From Nuremberg to Berlin on Friday."
+
+    How do a plain FSM and a frame-based (form) dialogue manager typically react?
+  type: single
+  answers:
+    - "Both fill all three slots and continue with the next missing one."
+    - "The frame fills all three slots, the FSM only takes the destination."
+    - "The FSM fills all three slots, the frame only takes the destination."
+    - "Both reject the answer, because it does not match the question."
+  correct: B
+  explanation: |
+    **A frame extracts one or more values per utterance; an FSM state expects one answer.**
+
+    - **A** wrong: an FSM state is tied to one question, it cannot skip ahead on its own.
+    - **B** correct: the frame fills origin, destination and date and asks only for the rest.
+    - **C** wrong: reversed; the frame is the one that handles over-answering.
+    - **D** wrong: neither has to reject; the answer contains the expected destination.
+
+# Slide: Rasa CALM: Flow processing (who decides what happens next)
+
+- question: |
+    In Rasa CALM, who decides what happens next in the conversation?
+  type: single
+  answers:
+    - "The LLM chooses the next step, the flow engine only executes it."
+    - "The flow engine follows the defined flows, the LLM only issues commands."
+    - "An intent classifier maps each message to the next action."
+    - "The user, because every message starts a new flow."
+  correct: B
+  explanation: |
+    **The LLM interprets the user (commands), the flow engine decides (business logic).**
+
+    - **A** wrong: this is the common misconception; the LLM does not control the flow.
+    - **B** correct: "any logic of what happens afterwards is handled by the flow engine".
+    - **C** wrong: CALM replaces the NLU intent classifier by LLM-based dialogue understanding.
+    - **D** wrong: a message can start a flow, but the flow then defines the steps.
