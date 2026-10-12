@@ -5,10 +5,10 @@
 - question: |
     A corpus of thousands of news articles is vectorized by a TF vectorizer.
 
-    If you look a one specific article, what is true for its TF vector?
+    If you look at one specific article, what is true for its TF vector?
   type: multiple
   answers:
-    - "It length is determined by the length of the document."
+    - "Its length is determined by the length of this article."
     - "Most entries are zero"
     - "Two articles with different texts can have the identical vector."
     - "Cosine similarity of two vectors can be negative."
