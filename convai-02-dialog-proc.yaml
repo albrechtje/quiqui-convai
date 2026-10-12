@@ -16,17 +16,35 @@
     - B
     - C
   explanation: |
-    **Sparse and order-free**: one dimension per vocabulary word, counts only.
+    **A sparse count vector: one dimension per corpus word, no word order.**
 
-    The vector has one entry per word of the whole corpus vocabulary and contains the
-    counts of the words in this article. Word order is not recorded.
+    - **A** wrong: the length is the vocabulary size, the same for every article.
+    - **B** correct: an article uses only a small part of the vocabulary (sparse).
+    - **C** correct: only counts matter, so "dog bites man" = "man bites dog".
+    - **D** wrong: counts are non-negative, so the cosine lies between 0 and 1.
 
-    - **A** wrong: the length is the vocabulary size of the corpus. It is the same for
-      every article, short or long.
-    - **B** correct: an article uses only a small part of the vocabulary, so most entries
-      are 0 (sparse vector).
-    - **C** correct: only the counts matter. "Dog bites man" and "man bites dog" give the
-      same vector, and so do any two texts with the same words in a different order.
-    - **D** wrong: all entries are counts and therefore not negative, so the cosine
-      similarity lies between 0 and 1. Negative values appear only with dense
-      embeddings, whose entries can be negative.
+# Slide: Transformer Encoder (BERT) (contextual embeddings vs. TF vectors)
+
+- question: |
+    A transformer encoder (e.g. BERT) processes a sequence of tokens.
+
+    What is true for the produced embeddings?
+  type: multiple
+  answers:
+    - "The encoder produces a number of vectors, one per input token."
+    - "Each vector has one dimension per word of the corpus vocabulary."
+    - "Most entries of a vector are zero."
+    - "The same words in a different order can lead to different vectors."
+    - "The transformed embeddings of \"car\" and \"automobile\" can end up with similar vectors."
+  correct:
+    - A
+    - D
+    - E
+  explanation: |
+    **One dense, contextual vector per input token.**
+
+    - **A** correct: one meaningful vector per input token; padding is only for batching.
+    - **B** wrong: the size is fixed by the model, not by the vocabulary (that is TF-IDF).
+    - **C** wrong: embeddings are dense, nearly every entry is non-zero.
+    - **D** correct: attention depends on position, so a different order changes the vectors.
+    - **E** correct: similar meaning gives similar embeddings, which TF-IDF cannot do.
