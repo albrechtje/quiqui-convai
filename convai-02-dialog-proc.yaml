@@ -1,0 +1,32 @@
+# Chapter 02
+
+# Slide: Vectorization with TF-IDF (sparse vs. dense vectors)
+
+- question: |
+    A corpus of thousands of news articles is vectorized by a TF vectorizer.
+
+    If you look a one specific article, what is true for its TF vector?
+  type: multiple
+  answers:
+    - "It length is determined by the length of the document."
+    - "Most entries are zero"
+    - "Two articles with different texts can have the identical vector."
+    - "Cosine similarity of two vectors can be negative."
+  correct:
+    - B
+    - C
+  explanation: |
+    **Sparse and order-free**: one dimension per vocabulary word, counts only.
+
+    The vector has one entry per word of the whole corpus vocabulary and contains the
+    counts of the words in this article. Word order is not recorded.
+
+    - **A** wrong: the length is the vocabulary size of the corpus. It is the same for
+      every article, short or long.
+    - **B** correct: an article uses only a small part of the vocabulary, so most entries
+      are 0 (sparse vector).
+    - **C** correct: only the counts matter. "Dog bites man" and "man bites dog" give the
+      same vector, and so do any two texts with the same words in a different order.
+    - **D** wrong: all entries are counts and therefore not negative, so the cosine
+      similarity lies between 0 and 1. Negative values appear only with dense
+      embeddings, whose entries can be negative.
