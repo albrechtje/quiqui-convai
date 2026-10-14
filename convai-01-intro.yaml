@@ -10,70 +10,22 @@
     - "Book a trip example"
     - "Psychological counseling"
 
-# Slide 31: Speech Acts, assign the illocutionary act (Bach & Harnish categories)
-
+# Speech Acts, assign the illocutionary act (Bach & Harnish categories)
 - question: |
-    Which type of illocutionary speech act is this?
-
-    > "Turn up the music!"
-  type: single
+    Which type of illocutionary speech act is each utterance?
+  type: matching
   answers:
-    - "Constative"
-    - "Directive"
-    - "Commissive"
-    - "Acknowledgment"
-  correct: B
-  explanation: "Directive: the speaker tries to get the hearer to do something."
-
-- question: |
-    Which type of illocutionary speech act is this?
-
-    > "What day in May do you want to travel?"
-  type: single
-  answers:
-    - "Constative"
-    - "Directive"
-    - "Commissive"
-    - "Acknowledgment"
-  correct: B
-  explanation: "Directive: a question asks the hearer to do something, namely to give an answer. Students may say constative because nothing is ordered. Discuss why asking counts as an attempt to get the hearer to act."
-
-- question: |
-    Which type of illocutionary speech act is this?
-
-    > "I will arrange the booking for you."
-  type: single
-  answers:
-    - "Constative"
-    - "Directive"
-    - "Commissive"
-    - "Acknowledgment"
-  correct: C
-  explanation: "Commissive: the speaker commits to a future course of action."
-
-- question: |
-    Which type of illocutionary speech act is this?
-
-    > "I need to travel in May."
-  type: single
-  answers:
-    - "Constative"
-    - "Directive"
-    - "Commissive"
-    - "Acknowledgment"
-  correct: A
-  explanation: "Constative: it states something about the speaker's situation. In context it may also work as an indirect request, which is a good point to discuss."
-
-- question: |
-    Which type of illocutionary speech act is this?
-
-    > "Thanks"
-  type: single
-  answers:
-    - "Constative"
-    - "Directive"
-    - "Commissive"
-    - "Acknowledgment"
-  correct: D
-  explanation: "Acknowledgment: it expresses the speaker's attitude towards the hearer regarding a social action (thanking)."
-
+    - "\"Turn up the music!\" is a [Directive|Constative|Commissive|Acknowledgment]"
+    - "\"What day in May do you want to travel?\" is a [Directive|Constative|Commissive|Acknowledgment]"
+    - "\"I will arrange the booking for you.\" is a [Commissive|Constative|Directive|Acknowledgment]"
+    - "\"I need to travel in May.\" is a [Constative|Directive|Commissive|Acknowledgment]"
+    - "\"Thanks\" is an [Acknowledgment|Constative|Directive|Commissive]"
+  explanation: |
+    - **Directive**: the speaker tries to get the hearer to do something. This
+    covers questions, too: asking is an attempt to get the hearer to answer.
+    Students may say constative because nothing is ordered; discuss why.
+    - **Commissive**: the speaker commits to a future course of action.
+    - **Constative**: states something about the speaker's situation. In
+      context it may also work as an indirect request, a good point to discuss.
+    - **Acknowledgment**: expresses an attitude towards the hearer regarding a
+      social action (thanking).
