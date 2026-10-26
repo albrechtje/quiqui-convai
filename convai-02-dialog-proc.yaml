@@ -8,7 +8,7 @@
     If you look at one specific article, what is true for its TF vector?
   type: multiple
   answers:
-    - "Its length is determined by the length of this article."
+    - "Its dimensionality is determined by the length of this article."
     - "Most entries are zero"
     - "Two articles with different texts can have the identical vector."
     - "Cosine similarity of two vectors can be negative."
@@ -18,7 +18,7 @@
   explanation: |
     **A sparse count vector: one dimension per corpus word, no word order.**
 
-    - **A** wrong: the length is the vocabulary size, the same for every article.
+    - **A** wrong: the dimensionality is the vocabulary size, the same for every article.
     - **B** correct: an article uses only a small part of the vocabulary (sparse).
     - **C** correct: only counts matter, so "dog bites man" = "man bites dog".
     - **D** wrong: counts are non-negative, so the cosine lies between 0 and 1.
