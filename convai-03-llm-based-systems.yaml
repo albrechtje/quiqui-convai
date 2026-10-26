@@ -8,20 +8,22 @@
   explanation: "Retrieval is usually the bottleneck: garbage in → garbage out. Bad chunks or misses doom the answer, while modern LLMs generate well given good context. The rest of the section essentially makes this case."
 
 - question: |
-    Before indexing documents for retrieval, we split them into smaller chunks.
-    Why is chunking necessary? (Select all that apply)
+    We split documents into chunks before indexing them.
+    What is true about chunking? (Select all that apply)
   type: multiple
   answers:
     - "Chunking removes irrelevant and noisy passages from the documents"
-    - "Embedding models can only encode a limited number of input tokens"
     - "A short passage yields a more focused embedding than a whole document"
+    - "Smaller chunks give more precise retrieval but risk splitting related information apart"
     - "Chunking compresses the text so the vector store needs less storage"
-    - "Smaller chunks let the retriever return more targeted context to the generator LLM"
+    - "Larger chunks preserve more context but dilute relevance with unrelated text"
+    - "Chunk size has no effect on retrieval quality, only on storage cost"
+    - "Embedding models can only encode a limited number of input tokens"
   correct:
     - B
     - C
     - E
-  explanation: "B: embedding models have a max input length. C: one vector must represent the whole text — a long doc mixes many topics into one blurry vector. E: retrieving a focused chunk wastes less context budget. A wrong: chunking splits, it doesn't filter content. D wrong: more chunks = more vectors, not less storage."
+  explanation: ""
 
 
 # After slide: Retrieval ("Goal: Retrieve relevant data")
@@ -46,19 +48,3 @@
   correct: A
   explanation: "Yes. RAG reduces but does not eliminate hallucination. The LLM may ignore or contradict the retrieved context, the retrieved chunks may be irrelevant or wrong, or the answer may not be in the documents at all — and the model still produces a confident answer."
 
-# After slide: Chunking ("Chunk size trade-offs")
-- question: |
-    We split documents into chunks before indexing them.
-    What is true about chunking and the choice of chunk size? (Select all that apply)
-  type: multiple
-  answers:
-    - "Smaller chunks give more precise retrieval but risk splitting related information apart"
-    - "Larger chunks preserve more context but dilute relevance with unrelated text"
-    - "Adding overlap between neighbouring chunks helps keep boundary-spanning facts intact"
-    - "There is one universally optimal chunk size that works best for every corpus"
-    - "Chunk size has no effect on retrieval quality, only on storage cost"
-  correct:
-    - A
-    - B
-    - C
-  explanation: "A, B, C describe the core trade-off and overlap as the fix. D wrong: optimal size is corpus- and query-dependent. E wrong: chunk size strongly affects precision, context preservation and relevance dilution."
