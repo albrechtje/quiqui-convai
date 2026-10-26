@@ -39,12 +39,19 @@
   correct: A
   explanation: "Recall is the priority: a missed chunk is an unrecoverable failure — the LLM cannot answer from context it never received. Irrelevant chunks are tolerable and can be cleaned up downstream by reranking. D wrong: distractors can mislead the LLM and crowd the context window."
 
-# After slide: Potential Problems with RAG
-- question: "A RAG system grounds its answer in retrieved documents. Can it still hallucinate?"
-  type: single
+# After slide: The Agent Harness
+- question: |
+    Who does what in an LLM-based agent? Choose for each line whether the **LLM** or
+    the **harness** does it.
+  type: matching
   answers:
-    - "Yes"
-    - "No"
-  correct: A
-  explanation: "Yes. RAG reduces but does not eliminate hallucination. The LLM may ignore or contradict the retrieved context, the retrieved chunks may be irrelevant or wrong, or the answer may not be in the documents at all — and the model still produces a confident answer."
-
+    - "Builds the prompt and decides what still fits into the context: [Harness|LLM]"
+    - "Chooses the next tool and its arguments: [LLM|Harness]"
+    - "Writes the plan and decides the order of the steps: [LLM|Harness]"
+    - "Runs the tool and checks its permissions: [Harness|LLM]"
+    - "Decides to hand a subtask to a subagent: [LLM|Harness]"
+    - "Stores history, plan and logs between the steps: [Harness|LLM]"
+    - "Ends the run because the goal is reached: [LLM|Harness]"
+    - "Ends the run because the step budget is used up: [Harness|LLM]"
+  explanation: |
+    **Rule of thumb**: the LLM decides, the harness executes and sets the limits.
